@@ -142,3 +142,5 @@ cython_debug/
 
 
 .idea/
+media/
+.flake8
