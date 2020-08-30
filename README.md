@@ -1,4 +1,3 @@
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django)
 # Website with map interesting places in Moscow 
 
 Training project [Devman Django course](https://dvmn.org/modules/django/)  
