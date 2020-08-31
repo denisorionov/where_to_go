@@ -4,6 +4,8 @@ Training project [Devman Django course](https://dvmn.org/modules/django/)
 
 All requirements are listed in the file: `requirements.txt`.
 
+[Website link](https://webspring58.pythonanywhere.com/)
+
 #### Установка проекта
 
 - установить python
