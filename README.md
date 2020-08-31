@@ -6,6 +6,12 @@ All requirements are listed in the file: `requirements.txt`.
 
 [Website link](https://webspring58.pythonanywhere.com/)
 
+[Admin site](https://webspring58.pythonanywhere.com/admin/)
+
+######For testing:
+- login: admin
+- password: admin
+
 #### Установка проекта
 
 - установить python
@@ -26,3 +32,6 @@ pip install -r requirements.txt
 ./manage.py runserver
 ```
 - открыть в браузере http://localhost:8000
+
+
+Тестовые данные взяты с сайта [Kudago](https://kudago.com/)
