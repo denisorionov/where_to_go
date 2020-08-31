@@ -4,9 +4,9 @@ Training project [Devman Django course](https://dvmn.org/modules/django/)
 
 All requirements are listed in the file: `requirements.txt`.
 
-[Website link](https://webspring58.pythonanywhere.com/)
+Link on website https://webspring58.pythonanywhere.com/
 
-[Admin site](https://webspring58.pythonanywhere.com/admin/)
+Link on admin site https://webspring58.pythonanywhere.com/admin/
 
 #### For testing:
 - login: admin
