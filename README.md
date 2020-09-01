@@ -33,5 +33,14 @@ pip install -r requirements.txt
 ```
 - открыть в браузере http://localhost:8000
 
+#### Загрузка данных из json
+
+Для загрузки данных данных используется команда load_place
+
+```shell script
+python manage.py load_place http://адрес/файла.json
+```
+Для загрузки данных из нескольких файлов ссылки указываются через пробел
+
 
 Тестовые данные взяты с сайта [Kudago](https://kudago.com/)
