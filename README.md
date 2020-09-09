@@ -9,7 +9,7 @@ Link on website https://webspring58.pythonanywhere.com/.
 Link on admin site https://webspring58.pythonanywhere.com/admin/.
 
 #### For testing:
-login: admin
+login: admin.
 
 password: admin
 
