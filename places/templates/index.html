@@ -53,7 +53,7 @@
           <span class="sr-only">Loading...</span>
         </div>
       </div>
-
+{% verbatim %}
       <div class="place-description" v-if="selectedPlace">
 
         <img v-if="mainPhotoSrc" v-bind:src="mainPhotoSrc" class="d-block shadow mb-3 rounded" v-bind:alt="selectedPlace.title">
@@ -86,7 +86,7 @@
             </a>
           </template>
         </div>
-
+{% endverbatim %}
         <div v-html="selectedPlace.long_description"></div>
       </div>
     </div>
@@ -97,7 +97,6 @@
   <div id="sidebar">
     <div id="sidebar-app"></div>
   </div>
-
   <div id="map"></div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
