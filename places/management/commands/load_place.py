@@ -18,7 +18,7 @@ class Command(BaseCommand):
             r = requests.get(link)
             data = r.json()
             new_place = Place.objects.create(title=data['title'],
-                                             description_short='description_short',
+                                             description_short=data['description_short'],
                                              description_long=data['description_long'],
                                              lng=data['coordinates']['lng'],
                                              lat=data['coordinates']['lat'])
