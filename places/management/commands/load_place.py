@@ -18,8 +18,8 @@ class Command(BaseCommand):
             r = requests.get(link)
             data = r.json()
             new_place = Place.objects.create(title=data['title'],
-                                             description_short=data['description_short'],
-                                             description_long=data['description_long'],
+                                             short_description=data['description_short'],
+                                             long_description=data['description_long'],
                                              lng=data['coordinates']['lng'],
                                              lat=data['coordinates']['lat'])
             for img_url in data['imgs']:

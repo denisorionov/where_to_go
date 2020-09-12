@@ -1,6 +1,7 @@
+from adminsortable2.admin import SortableInlineAdminMixin, SortableAdminMixin
 from django.contrib import admin
 from django.utils.html import format_html
-from adminsortable2.admin import SortableInlineAdminMixin, SortableAdminMixin
+
 from places.models import Place, Image
 
 
@@ -9,7 +10,7 @@ class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
         return format_html('<img src="{url}" height="200" />'.format(url=obj.img.url))
 
     readonly_fields = ['preview']
-    list_display = ('position', 'place',  'preview')
+    list_display = ('position', 'place', 'preview')
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
@@ -22,10 +23,23 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
 
 class PlaceAdmin(admin.ModelAdmin):
+    indexCnt = 0
+
+    def index_counter(self, obj):  # нумерация строк list_display
+        count = Place.objects.all().count()
+        if self.indexCnt < count:
+            self.indexCnt += 1
+        else:
+            self.indexCnt = 1
+        return self.indexCnt
+
+    index_counter.short_description = "№"
+
     inlines = (ImageInline,)
-    list_display = ('id', 'title', 'description_short')
+    list_display = ('index_counter', 'title', 'short_description')
+    list_display_links = ('title',)  # сылка для редактирования
     search_fields = ['title']
-    ordering = ('id', )
+    ordering = ('id',)
 
 
 admin.site.register(Place, PlaceAdmin)
