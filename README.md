@@ -8,12 +8,12 @@ Link on website https://webspring58.pythonanywhere.com/.
 
 Link on admin site https://webspring58.pythonanywhere.com/admin/.
 
-#### For testing:
+### For testing:
 login: admin.
 
 password: admin.
 
-#### Установка проекта
+### Установка проекта
 
 Установить python.
 
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ```
 Открыть в браузере http://localhost:8000.
 
-#### Загрузка данных из json
+### Загрузка данных из json
 
 Для загрузки данных данных используется команда load_place:
 
