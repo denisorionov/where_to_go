@@ -4,45 +4,45 @@ Training project [Devman Django course](https://dvmn.org/modules/django/).
 
 All requirements are listed in the file: `requirements.txt`.
 
-Link on website https://webspring58.pythonanywhere.com/.
+Link on website: https://webspring58.pythonanywhere.com/.
 
-Link on admin site https://webspring58.pythonanywhere.com/admin/.
+Link on admin site: https://webspring58.pythonanywhere.com/admin/.
 
 ### For testing:
 login: admin.
 
-password: admin.
+password: adminadmin.
 
-### Установка проекта
+### Installing project
 
-Установить python.
+Install python.
 
-Создать виртуальное окружение: 
+Create virtual environment: 
 ```shell script
 python -m venv env
 ```
-Активировать виртуальное окружение:
+Activate the virtual environment:
 ```shell script
 source env/scripts/activate
 ```
-Установить зависимости:
+Install requirements:
 ```shell script
 pip install -r requirements.txt
 ```
-Запустить проект:
+Run the project:
 ```shell script
 ./manage.py runserver
 ```
-Открыть в браузере http://localhost:8000.
+Open in browser: http://localhost:8000.
 
-### Загрузка данных из json
+### Loading data from json
 
-Для загрузки данных данных используется команда load_place:
+For load data use command load_place:
 
 ```shell script
-python manage.py load_place http://адрес/файла.json
+python manage.py load_place http://addres/file.json
 ```
-Для загрузки данных из нескольких файлов ссылки указываются через пробел.
+For load data from several files, the links are separated by a space.
 
 
-Тестовые данные взяты с сайта [Kudago](https://kudago.com/).
+Data taken from [Kudago](https://kudago.com/).
