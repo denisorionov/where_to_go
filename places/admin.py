@@ -43,4 +43,3 @@ class PlaceAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Place, PlaceAdmin)
-# admin.site.register(Image, ImageAdmin)
