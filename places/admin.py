@@ -7,7 +7,7 @@ from places.models import Place, Image
 
 class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
     def preview(self, obj):
-        return format_html('<img src="{url}" height="200" />'.format(url=obj.img.url))
+        return format_html('<img src="{}" height="200" />', obj.img.url)
 
     readonly_fields = ['preview']
     list_display = ('position', 'place', 'preview')
