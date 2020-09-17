@@ -17,11 +17,12 @@ class Command(BaseCommand):
         for link in options['link']:
             r = requests.get(link)
             data = r.json()
-            new_place = Place.objects.create(title=data['title'],
-                                             short_description=data['description_short'],
-                                             long_description=data['description_long'],
-                                             lng=data['coordinates']['lng'],
-                                             lat=data['coordinates']['lat'])
+            new_place, created = Place.objects.get_or_create(title=data['title'],
+                                                             short_description=data['description_short'],
+                                                             long_description=data['description_long'],
+                                                             lng=data['coordinates']['lng'],
+                                                             lat=data['coordinates']['lat'])
+            print(created)
             for img_url in data['imgs']:
                 name = urlparse(img_url).path.split('/')[-1]
                 img_content = ContentFile(requests.get(img_url).content)
