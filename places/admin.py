@@ -15,7 +15,7 @@ class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     def preview(self, obj):
-        return format_html('<img src="{url}" height="200"/>'.format(url=obj.img.url))
+        return format_html('<img src="{}" height="200"/>', obj.img.url)
 
     readonly_fields = ['preview']
     model = Image
