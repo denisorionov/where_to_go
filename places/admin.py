@@ -10,7 +10,7 @@ class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
         return format_html('<img src="{}" height="200" />', obj.img.url)
 
     readonly_fields = ['preview']
-    list_display = ('position', 'place', 'preview')
+    list_display = ['position', 'place', 'preview']
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
@@ -35,11 +35,11 @@ class PlaceAdmin(admin.ModelAdmin):
 
     index_counter.short_description = "№"
 
-    inlines = (ImageInline,)
-    list_display = ('index_counter', 'title', 'short_description')
-    list_display_links = ('title',)  # сылка для редактирования
+    inlines = [ImageInline]
+    list_display = ['index_counter', 'title', 'short_description']
+    list_display_links = ['title']  # сылка для редактирования
     search_fields = ['title']
-    ordering = ('id',)
+    ordering = ['id']
 
 
 admin.site.register(Place, PlaceAdmin)
