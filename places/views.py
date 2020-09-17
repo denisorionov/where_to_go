@@ -37,7 +37,7 @@ class PlaceJsonView(View):  # страница с json файлом
         place = get_object_or_404(Place, pk=id)
         imgs = []
 
-        for img in Image.objects.filter(place__id=id):
+        for img in place.images.all():
             imgs.append(img.img.url)
 
         data = {
