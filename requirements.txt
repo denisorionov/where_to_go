@@ -6,8 +6,9 @@ django-admin-sortable2==0.7.7
 django-tinymce==3.0.2
 idna==2.10
 Pillow==7.2.0
-python-dotenv==0.14.0
 pytz==2020.1
 requests==2.24.0
 sqlparse==0.3.1
 urllib3==1.25.10
+
+environs~=8.0.0
