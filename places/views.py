@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.views import View
 
-from places.models import Place, Image
+from places.models import Place
 
 
 class MainView(View):  # главная страница
@@ -33,8 +33,8 @@ class MainView(View):  # главная страница
 
 
 class PlaceJsonView(View):  # страница с json файлом
-    def get(self, request, num):
-        place = get_object_or_404(Place, pk=num)
+    def get(self, request, number):
+        place = get_object_or_404(Place, pk=number)
         imgs = []
 
         for img in place.images.all():
