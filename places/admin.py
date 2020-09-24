@@ -7,7 +7,10 @@ from places.models import Place, Image
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
     def preview(self, obj):
-        return format_html('<img src="{}" height="200"/>', obj.img.url)
+        if obj.img:
+            return format_html('<img src="{}" height="200"/>', obj.img.url)
+        else:
+            return ("Здесь будет превью, когда вы выберете файл.")
 
     readonly_fields = ['preview']
     model = Image
