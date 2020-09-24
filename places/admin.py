@@ -1,16 +1,8 @@
-from adminsortable2.admin import SortableInlineAdminMixin, SortableAdminMixin
+from adminsortable2.admin import SortableInlineAdminMixin
 from django.contrib import admin
 from django.utils.html import format_html
 
 from places.models import Place, Image
-
-
-class ImageAdmin(SortableAdminMixin, admin.ModelAdmin):
-    def preview(self, obj):
-        return format_html('<img src="{}" height="200" />', obj.img.url)
-
-    readonly_fields = ['preview']
-    list_display = ['position', 'place', 'preview']
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
