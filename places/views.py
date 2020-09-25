@@ -35,12 +35,9 @@ class MainView(View):  # главная страница
 class PlaceJsonView(View):  # страница с json файлом
     def get(self, request, number):
         place = get_object_or_404(Place, pk=number)
-        imgs = []
+        imgs = [img.img.url for img in place.images.all()]
 
-        for img in place.images.all():
-            imgs.append(img.img.url)
-
-        data = {
+        place_inf = {
             'title': place.title,
             'imgs': imgs,
             'description_short': place.short_description,
@@ -51,4 +48,4 @@ class PlaceJsonView(View):  # страница с json файлом
             }
         }
 
-        return JsonResponse(data, safe=False, json_dumps_params={'ensure_ascii': False})
+        return JsonResponse(place_inf, safe=False, json_dumps_params={'ensure_ascii': False})
