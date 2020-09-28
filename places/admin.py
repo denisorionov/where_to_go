@@ -6,19 +6,24 @@ from places.models import Place, Image
 
 
 class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
+    model = Image
+    extra = 0
+    readonly_fields = ['preview']
+
     def preview(self, obj):
         if obj.img:
             return format_html('<img src="{}" height="200"/>', obj.img.url)
         else:
-            return ("Здесь будет превью, когда вы выберете файл.")
-
-    readonly_fields = ['preview']
-    model = Image
-    extra = 0
+            return "Здесь будет превью, когда вы выберете файл."
 
 
 class PlaceAdmin(admin.ModelAdmin):
     indexCnt = 0
+    inlines = [ImageInline]
+    list_display = ['index_counter', 'title', 'short_description']
+    list_display_links = ['title']
+    search_fields = ['title']
+    ordering = ['id']
 
     def index_counter(self, obj):  # нумерация строк list_display
         count = Place.objects.all().count()
@@ -29,12 +34,6 @@ class PlaceAdmin(admin.ModelAdmin):
         return self.indexCnt
 
     index_counter.short_description = "№"
-
-    inlines = [ImageInline]
-    list_display = ['index_counter', 'title', 'short_description']
-    list_display_links = ['title']  # сылка для редактирования
-    search_fields = ['title']
-    ordering = ['id']
 
 
 admin.site.register(Place, PlaceAdmin)
