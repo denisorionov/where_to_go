@@ -8,7 +8,7 @@ from places.views import MainView, PlaceJsonView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainView.as_view()),  # главная страница
-    path('place/<int:number>', PlaceJsonView.as_view(), name='place_json')
+    path('place/<int:place_id>', PlaceJsonView.as_view(), name='place_json')
 ]
 
 if settings.DEBUG:

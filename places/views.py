@@ -33,8 +33,8 @@ class MainView(View):  # главная страница
 
 
 class PlaceJsonView(View):  # страница с json файлом
-    def get(self, request, number):
-        place = get_object_or_404(Place, pk=number)
+    def get(self, request, place_id):
+        place = get_object_or_404(Place, pk=place_id)
         imgs = [img.img.url for img in place.images.all()]
 
         place_inf = {
