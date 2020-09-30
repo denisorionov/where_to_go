@@ -16,20 +16,16 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         for link in options['link']:
             r = requests.get(link)
-            try:
-                r.raise_for_status()
-                json_file = r.json()
-            except requests.HTTPError as error:
-                print(error)
-            else:
-                new_place, created = Place.objects.get_or_create(title=json_file['title'],
-                                                                 short_description=json_file['description_short'],
-                                                                 long_description=json_file['description_long'],
-                                                                 lng=json_file['coordinates']['lng'],
-                                                                 lat=json_file['coordinates']['lat'])
-                for img_url in json_file['imgs']:
-                    name = urlparse(img_url).path.split('/')[-1]
-                    img_content = ContentFile(requests.get(img_url).content)
-                    new_img = Image(place=new_place)
-                    new_img.img.save(name, img_content, save=True)
-                    new_img.save()
+            r.raise_for_status()
+            json_file = r.json()
+            new_place, created = Place.objects.get_or_create(title=json_file['title'],
+                                                             short_description=json_file['description_short'],
+                                                             long_description=json_file['description_long'],
+                                                             lng=json_file['coordinates']['lng'],
+                                                             lat=json_file['coordinates']['lat'])
+            for img_url in json_file['imgs']:
+                name = urlparse(img_url).path.split('/')[-1]
+                img_content = ContentFile(requests.get(img_url).content)
+                new_img = Image(place=new_place)
+                new_img.img.save(name, img_content, save=True)
+                new_img.save()
