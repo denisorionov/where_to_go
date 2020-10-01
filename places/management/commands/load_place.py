@@ -25,6 +25,7 @@ class Command(BaseCommand):
                                                              lat=json_file['coordinates']['lat'])
             for img_url in json_file['imgs']:
                 name = urlparse(img_url).path.split('/')[-1]
+                requests.get(img_url).raise_for_status()
                 img_content = ContentFile(requests.get(img_url).content)
                 new_img = Image(place=new_place)
                 new_img.img.save(name, img_content, save=True)
